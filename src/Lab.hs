@@ -1,7 +1,7 @@
 module Lab where
 
 import Data.List as L
-import Data.Map as M
+import Data.Map.Strict as M
 import Data.Set as S
 
 -- Task 0.5.1
@@ -173,14 +173,6 @@ nextInts = L.map (+ 1)
 -- Task 0.5.29
 cubes :: Num a => [a] -> [a]
 cubes = L.map (^ 3)
-
--- Task 0.5.30
-dict2list :: Ord a => Map a b -> [a] -> [b]
-dict2list dct keylist = [ dct ! k | k <- keylist ]
-
--- Task 0.5.31
-list2dict :: Ord a => [b] -> [a] -> Map a b
-list2dict l keylist = M.fromList $ zip keylist l
 
 -- Task 0.5.32
 all3DigitNumbers :: Int -> Set Int
