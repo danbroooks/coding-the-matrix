@@ -142,14 +142,12 @@ identityDict = M.fromList [ (x, x) | x <- ["red", "white", "blue"] ]
 representationDict :: Int -> Map Int [Int]
 representationDict base = M.fromList [ (x, encode x) | x <- digits ]
   where
-    base2 = base * base
-    base3 = base2 * base
     encode x =
-      [ x `quot` base2 `mod` base
+      [ x `quot` base^2 `mod` base
       , x `quot` base `mod` base
       , x `mod` base
       ]
-    digits = [0..base3 - 1]
+    digits = [0..base^3 - 1]
 
 -- Task 0.5.26
 listDictToDict :: Fractional num => Map String num
@@ -184,3 +182,6 @@ dict2list dct keylist = [ dct ! k | k <- keylist ]
 list2dict :: Ord a => [b] -> [a] -> Map a b
 list2dict l keylist = M.fromList $ zip keylist l
 
+-- Task 0.5.32
+all3DigitNumbers :: Int -> Set Int
+all3DigitNumbers base = S.fromList [0..base^3-1]
