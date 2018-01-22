@@ -2,14 +2,12 @@
 
 module TheField where
 
-import           Control.Monad.IO.Class
 import           Data.Complex
 import           Data.Char
 import           Data.List as L
 import           Graphics.Rendering.Chart.Easy
 import           Graphics.Rendering.Chart.Backend.Cairo
-import           Vision.Image
-
+--
 import           TheField.Image
 import           TheField.Plot
 
@@ -144,6 +142,19 @@ decodeChar n =
     _ -> chr $ n' + 65
   where n' = n `mod` 27
 
+-- Task 1.7.10
+sumComplexNumbersA :: EC (Layout Double Double) ()
+sumComplexNumbersA = plotComplexAddition (3.0 :+ 1.0) (2.0 :+ 2.0)
+
+sumComplexNumbersB :: EC (Layout Double Double) ()
+sumComplexNumbersB = plotComplexAddition ((-1.0) :+ 2.0) (1.0 :+ (-1.0))
+
+sumComplexNumbersC :: EC (Layout Double Double) ()
+sumComplexNumbersC = plotComplexAddition (2.0 :+ 0.0) ((-3.0) :+ 0.001)
+
+sumComplexNumbersD :: EC (Layout Double Double) ()
+sumComplexNumbersD = plotComplexAddition (4 * (0.0 :+ 2.0)) (0.001 :+ 1.0)
+
 generateImages :: IO ()
 generateImages = do
   toFile def "./src/TheField/task-1.4.1.png" plotComplex
@@ -157,3 +168,7 @@ generateImages = do
   toFile def "./src/TheField/task-1.4.18.png" plotRotation'
   toFile def "./src/TheField/task-1.4.19.png" =<< plotImageRotation <$> examplePng
   toFile def "./src/TheField/task-1.4.20.png" =<< plotMultipleOperations <$> examplePng
+  toFile def "./src/TheField/task-1.7.10-a.png" sumComplexNumbersA
+  toFile def "./src/TheField/task-1.7.10-b.png" sumComplexNumbersB
+  toFile def "./src/TheField/task-1.7.10-c.png" sumComplexNumbersC
+  toFile def "./src/TheField/task-1.7.10-d.png" sumComplexNumbersD
