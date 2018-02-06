@@ -165,3 +165,25 @@ plotMultipleOperations img = plot' pts 200 200
 
 ![](https://raw.githubusercontent.com/danbroooks/coding-the-matrix/c22a4fd24455462e5355d1bd1d87aefa7c368448/src/TheField/task-1.4.20.png)
 
+## Task 1.7.10
+
+Each of the following problems asks for the sum of two complex numbers.
+For each, write the solution and illustrate it with a diagram.
+The arrows you draw should (roughly) correspond to the vectors being added.
+
+a. `(3+1i)+(2+2i)`
+
+![](https://github.com/danbroooks/coding-the-matrix/raw/c2ddbd78d496c8c6f3b7448af9a2e3db9bea45a3/src/TheField/task-1.7.10-a.png)
+
+b. `(−1+2i)+(1−1i)`
+
+![](https://github.com/danbroooks/coding-the-matrix/raw/c2ddbd78d496c8c6f3b7448af9a2e3db9bea45a3/src/TheField/task-1.7.10-b.png)
+
+c. `(2+0i)+(−3+.001i)`
+
+![](https://github.com/danbroooks/coding-the-matrix/raw/c2ddbd78d496c8c6f3b7448af9a2e3db9bea45a3/src/TheField/task-1.7.10-c.png)
+
+d. `4(0+2i)+(.001+1i)`
+
+![](https://github.com/danbroooks/coding-the-matrix/raw/c2ddbd78d496c8c6f3b7448af9a2e3db9bea45a3/src/TheField/task-1.7.10-d.png)
+
