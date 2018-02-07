@@ -5,7 +5,7 @@ module TheField where
 import           Data.Complex
 import           Data.Char
 import           Data.List as L
-import           Graphics.Rendering.Chart.Easy
+import           Graphics.Rendering.Chart.Easy hiding(transform)
 import           Graphics.Rendering.Chart.Backend.Cairo
 --
 import           TheField.Image
@@ -14,8 +14,8 @@ import           TheField.Plot
 i :: Num a => a -> Complex a
 i n = 0 :+ n
 
-e :: Double
-e = exp 1
+e :: Floating a => Complex a
+e = exp 1 :+ 0
 
 s :: [Complex Double]
 s = [ 2 + i 2
@@ -73,27 +73,27 @@ examplePng = withIntensity 120 . pixels <$> readImage "./src/TheField/img01.png"
 -- Task 1.4.17
 plotE :: EC (Layout Double Double) ()
 plotE = plot' pts 2 2
-  where pts = [ (e :+ 0) ** ((x * pi :+ 0) * i 2 / (n :+ 0)) | x <- [0..n-1] ]
+  where pts = [ e ** ((x * pi :+ 0) * i 2 / (n :+ 0)) | x <- [0..n-1] ]
         n = 20
 
 -- Task 1.4.18
 plotRotation' :: EC (Layout Double Double) ()
 plotRotation' = plot' pts 4 4
-  where pts = [ pt * (e :+ 0) ** i (pi / 4) | pt <- s ]
+  where pts = [ pt * e ** i (pi / 4) | pt <- s ]
 
 -- Task 1.4.19
 plotImageRotation :: [(Double, Double)] -> EC (Layout Double Double) ()
 plotImageRotation img = plot' pts 200 200
   where
     pts = [ rotate $ x :+ y | (x, y) <- img ]
-    rotate pt = pt * (e :+ 0) ** i (pi / 4)
+    rotate pt = pt * e ** i (pi / 4)
 
 -- Task 1.4.20
 plotMultipleOperations :: [(Double, Double)] -> EC (Layout Double Double) ()
 plotMultipleOperations img = plot' pts 200 200
   where
     pts = [ scale . rotate . transform $ x :+ y | (x, y) <- img ]
-    rotate = (*) ((e :+ 0) ** i (pi / 4))
+    rotate = (*) (e ** i (pi / 4))
     scale = (*) 0.5
     transform = (+) (-1 * (100 :+ 100))
 

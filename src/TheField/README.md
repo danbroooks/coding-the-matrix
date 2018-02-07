@@ -116,7 +116,7 @@ Plot these complex numbers.
 ```hs
 plotE :: EC (Layout Double Double) ()
 plotE = plot' pts 2 2
-  where pts = [ (e :+ 0) ** ((x * pi :+ 0) * i 2 / (n :+ 0)) | x <- [0..n-1] ]
+  where pts = [ e ** ((x * pi :+ 0) * i 2 / (n :+ 0)) | x <- [0..n-1] ]
         n = 20
 ```
 
@@ -130,7 +130,7 @@ Plot the value of this comprehension.
 ```hs
 plotRotation' :: EC (Layout Double Double) ()
 plotRotation' = plot' pts 4 4
-  where pts = [ pt * (e :+ 0) ** i (pi / 4) | pt <- s ]
+  where pts = [ pt * e ** i (pi / 4) | pt <- s ]
 ```
 
 ![](https://github.com/danbroooks/coding-the-matrix/raw/de7e944d555e6d5c39ad3a23d267044a73f667ac/src/TheField/task-1.4.18.png)
@@ -144,7 +144,7 @@ plotImageRotation :: [(Double, Double)] -> EC (Layout Double Double) ()
 plotImageRotation img = plot' pts 200 200
   where
     pts = [ rotate $ x :+ y | (x, y) <- img ]
-    rotate pt = pt * (e :+ 0) ** i (pi / 4)
+    rotate pt = pt * e ** i (pi / 4)
 ```
 
 ![](https://raw.githubusercontent.com/danbroooks/coding-the-matrix/c21eea7e86c01221db7242b399b841148365d73e/src/TheField/task-1.4.19.png)
@@ -158,7 +158,7 @@ plotMultipleOperations :: [(Double, Double)] -> EC (Layout Double Double) ()
 plotMultipleOperations img = plot' pts 200 200
   where
     pts = [ scale . rotate . transform $ x :+ y | (x, y) <- img ]
-    rotate = (*) ((e :+ 0) ** i (pi / 4))
+    rotate = (*) (e ** i (pi / 4))
     scale = (*) 0.5
     transform = (+) (-1 * (100 :+ 100))
 ```
