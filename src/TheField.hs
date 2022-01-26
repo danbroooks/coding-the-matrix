@@ -5,7 +5,7 @@ module TheField where
 import           Data.Complex
 import           Data.Char
 import           Data.List as L
-import           Graphics.Rendering.Chart.Easy hiding(transform)
+import           Graphics.Rendering.Chart.Easy hiding (transform)
 import           Graphics.Rendering.Chart.Backend.Cairo
 --
 import           TheField.Image
@@ -35,7 +35,7 @@ plotComplex = plot' pts 4 4
   where pts = s
 
 -- Task 1.4.3
-plotTranslate :: EC (Layout Double Double) () 
+plotTranslate :: EC (Layout Double Double) ()
 plotTranslate = plot' pts 5 5
   where pts = [ pt + (1 + i 2) | pt <- s ]
 
@@ -45,7 +45,7 @@ plotEyeCentral = plot' pts 4 4
   where pts = [ - 1 * (2 :+ 2) + pt | pt <- s ]
 
 -- Task 1.4.7
-plotScaled :: EC (Layout Double Double) () 
+plotScaled :: EC (Layout Double Double) ()
 plotScaled = plot' pts 4 4
   where pts = [ 0.5 * pt | pt <- s ]
 
@@ -136,7 +136,7 @@ decodeNumber str = L.foldr ((+) . uncurry decode) 0 $ zip [0..] (reverse str)
   where decode idx val = val * 2 ^ idx
 
 decodeChar :: Int -> Char
-decodeChar n = 
+decodeChar n =
   case n' of
     26 -> ' '
     _ -> chr $ n' + 65
