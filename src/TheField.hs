@@ -6,7 +6,7 @@ import           Data.Complex
 import           Data.Char
 import           Data.List as L
 import           Graphics.Rendering.Chart.Easy hiding (transform)
-import           Graphics.Rendering.Chart.Backend.Cairo
+import           Graphics.Rendering.Chart.Backend.Diagrams
 --
 import           TheField.Image
 import           TheField.Plot
@@ -65,7 +65,8 @@ plotImage img = plot' pts 200 200
   where pts = [ x :+ y | (x, y) <- img ]
 
 examplePng :: IO [(Double, Double)]
-examplePng = withIntensity 120 . pixels <$> readImage "./src/TheField/img01.png"
+examplePng = do
+  withIntensity 120 . pixels <$> readImage "./src/TheField/img01.png"
   where
     withIntensity ins pts =
       [ (fromIntegral x, fromIntegral y) | (x, y, pxl) <- pts, intensity pxl > ins ]
@@ -157,18 +158,18 @@ sumComplexNumbersD = plotComplexAddition (4 * (0.0 :+ 2.0)) (0.001 :+ 1.0)
 
 generateImages :: IO ()
 generateImages = do
-  toFile def "./src/TheField/task-1.4.1.png" plotComplex
-  toFile def "./src/TheField/task-1.4.3.png" plotTranslate
-  toFile def "./src/TheField/task-1.4.4.png" plotEyeCentral
-  toFile def "./src/TheField/task-1.4.7.png" plotScaled
-  toFile def "./src/TheField/task-1.4.8.png" plotRotation
-  toFile def "./src/TheField/task-1.4.9.png" plotTranslatedRotation
-  toFile def "./src/TheField/task-1.4.10.png" =<< plotImage <$> examplePng
-  toFile def "./src/TheField/task-1.4.17.png" plotE
-  toFile def "./src/TheField/task-1.4.18.png" plotRotation'
-  toFile def "./src/TheField/task-1.4.19.png" =<< plotImageRotation <$> examplePng
-  toFile def "./src/TheField/task-1.4.20.png" =<< plotMultipleOperations <$> examplePng
-  toFile def "./src/TheField/task-1.7.10-a.png" sumComplexNumbersA
-  toFile def "./src/TheField/task-1.7.10-b.png" sumComplexNumbersB
-  toFile def "./src/TheField/task-1.7.10-c.png" sumComplexNumbersC
-  toFile def "./src/TheField/task-1.7.10-d.png" sumComplexNumbersD
+  toFile def "./src/TheField/task-1.4.1.svg" plotComplex
+  toFile def "./src/TheField/task-1.4.3.svg" plotTranslate
+  toFile def "./src/TheField/task-1.4.4.svg" plotEyeCentral
+  toFile def "./src/TheField/task-1.4.7.svg" plotScaled
+  toFile def "./src/TheField/task-1.4.8.svg" plotRotation
+  toFile def "./src/TheField/task-1.4.9.svg" plotTranslatedRotation
+  toFile def "./src/TheField/task-1.4.10.svg" =<< plotImage <$> examplePng
+  toFile def "./src/TheField/task-1.4.17.svg" plotE
+  toFile def "./src/TheField/task-1.4.18.svg" plotRotation'
+  toFile def "./src/TheField/task-1.4.19.svg" =<< plotImageRotation <$> examplePng
+  toFile def "./src/TheField/task-1.4.20.svg" =<< plotMultipleOperations <$> examplePng
+  toFile def "./src/TheField/task-1.7.10-a.svg" sumComplexNumbersA
+  toFile def "./src/TheField/task-1.7.10-b.svg" sumComplexNumbersB
+  toFile def "./src/TheField/task-1.7.10-c.svg" sumComplexNumbersC
+  toFile def "./src/TheField/task-1.7.10-d.svg" sumComplexNumbersD

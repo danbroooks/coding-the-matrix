@@ -8,7 +8,9 @@ newtype Sum a = Sum { unSum :: a }
 
 instance Num a => Monoid (Sum a) where
     mempty = Sum 0
-    Sum x `mappend` Sum y = Sum (x + y)
+
+instance Num a => Semigroup (Sum a) where
+    Sum x <> Sum y = Sum (x + y)
 
 mySum :: Num a => [a] -> a
 mySum = unSum . mconcat . fmap Sum
@@ -18,7 +20,9 @@ newtype Product a = Product { unProduct :: a }
 
 instance Num a => Monoid (Product a) where
     mempty = Product 1
-    Product x `mappend` Product y = Product (x * y)
+
+instance Num a => Semigroup (Product a) where
+    Product x <> Product y = Product (x * y)
 
 myProduct :: Num a => [a] -> a
 myProduct = unProduct . mconcat . fmap Product
@@ -28,7 +32,9 @@ newtype Min a = Min { unMin :: a }
 
 instance (Bounded a, Ord a, Num a) => Monoid (Min a) where
     mempty = Min maxBound
-    Min x `mappend` Min y = Min (x `min` y)
+
+instance (Bounded a, Ord a, Num a) => Semigroup (Min a) where
+    Min x <> Min y = Min (x `min` y)
 
 myMin :: (Bounded a, Ord a, Num a) => [a] -> a
 myMin = unMin . mconcat . fmap Min
@@ -38,7 +44,9 @@ newtype Concat = Concat { unConcat :: String }
 
 instance Monoid Concat where
   mempty = Concat ""
-  Concat x `mappend` Concat y = Concat (x ++ y)
+
+instance Semigroup Concat where
+  Concat x <> Concat y = Concat (x ++ y)
 
 myConcat :: [String] -> String
 myConcat = unConcat . mconcat . fmap Concat
@@ -48,7 +56,9 @@ newtype Union a = Union { unUnion :: Set a }
 
 instance Ord a => Monoid (Union a) where
   mempty = Union (S.fromList [])
-  Union x `mappend` Union y = Union (x `S.union` y)
+
+instance Ord a => Semigroup (Union a) where
+  Union x <> Union y = Union (x `S.union` y)
 
 myUnion :: Ord a => [Set a] -> Set a
 myUnion = unUnion . mconcat . fmap Union
