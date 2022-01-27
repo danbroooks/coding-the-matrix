@@ -10,13 +10,12 @@ cabal-version:       >=1.10
 library
   hs-source-dirs:      src
   build-depends:       base
-                     , containers
-                     , random
                      , Chart
-                     , Chart-cairo
+                     , Chart-diagrams
+                     , containers
+                     , JuicyPixels
+                     , random
                      , vector
-                     , friday
-                     , friday-devil
   exposed-modules:     Lab
                      , InverseIndexLab
                      , ComprehensionLab

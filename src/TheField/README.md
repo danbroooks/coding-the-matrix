@@ -27,7 +27,7 @@ plotComplex = plot' pts 4 4
   where pts = s
 ```
 
-![](https://raw.githubusercontent.com/danbroooks/coding-the-matrix/f33e36efde850226a47ed52ddbd8bba901f25668/src/TheField/task-1.4.1.png)
+![](https://raw.githubusercontent.com/danbroooks/coding-the-matrix/699e56319c1d2842e42871c3ed8e9bfc001e9cac/src/TheField/task-1.4.1.svg)
 
 ## Task 1.4.3
 
@@ -39,7 +39,7 @@ plotTranslate = plot' pts 5 5
   where pts = [ pt + (1 + i 2) | pt <- s ]
 ```
 
-![](https://github.com/danbroooks/coding-the-matrix/raw/ee66c1d69779c3847316b6fedc5d1929b34b63dd/src/TheField/task-1.4.3.png)
+![](https://raw.githubusercontent.com/danbroooks/coding-the-matrix/5adf98006bd085565860b4b8caf18e8c7f71944a/src/TheField/task-1.4.3.svg)
 
 ## Task 1.4.4
 
@@ -52,7 +52,7 @@ plotEyeCentral = plot' pts 4 4
   where pts = [ - 1 * (2 :+ 2) + pt | pt <- s ]
 ```
 
-![](https://raw.githubusercontent.com/danbroooks/coding-the-matrix/afdf5513dbde663accd44be95b1b8306509a10db/src/TheField/task-1.4.4.png)
+![](https://github.com/danbroooks/coding-the-matrix/blob/5adf98006bd085565860b4b8caf18e8c7f71944a/src/TheField/task-1.4.4.svg)
 
 ## Task 1.4.7
 
@@ -64,7 +64,7 @@ plotScaled = plot' pts 4 4
   where pts = [ 0.5 * pt | pt <- s ]
 ```
 
-![](https://github.com/danbroooks/coding-the-matrix/raw/07a73d6fbf971cfff7885fc021f895f73dce3628/src/TheField/task-1.4.7.png)
+![](https://raw.githubusercontent.com/danbroooks/coding-the-matrix/5adf98006bd085565860b4b8caf18e8c7f71944a/src/TheField/task-1.4.7.svg)
 
 ## Task 1.4.8
 
@@ -76,7 +76,7 @@ plotRotation = plot' pts 4 4
   where pts = [ i 0.5 * pt | pt <- s ]
 ```
 
-![](https://raw.githubusercontent.com/danbroooks/coding-the-matrix/5d8dd02683b81ea34a7552d6cd88456c594fe04a/src/TheField/task-1.4.8.png)
+![](https://raw.githubusercontent.com/danbroooks/coding-the-matrix/2fea2d2778bc57805d98c2f0980cfbd4d52da932/src/TheField/task-1.4.8.svg)
 
 ## Task 1.4.9
 
@@ -88,7 +88,7 @@ plotTranslatedRotation = plot' pts 4 4
   where pts = [ (i 0.5 * pt) + i (-1) + 2 | pt <- s ]
 ```
 
-![](https://raw.githubusercontent.com/danbroooks/coding-the-matrix/0bac5bc6ee43fead762612512480ac4439ba1dca/src/TheField/task-1.4.9.png)
+![](https://raw.githubusercontent.com/danbroooks/coding-the-matrix/2fea2d2778bc57805d98c2f0980cfbd4d52da932/src/TheField/task-1.4.9.svg)
 
 ## Task 1.4.10
 
@@ -105,7 +105,7 @@ plotImage img = plot' pts 200 200
     pts = [ x :+ y | (x, y) <- img ]
 ```
 
-![](https://github.com/danbroooks/coding-the-matrix/raw/de7e944d555e6d5c39ad3a23d267044a73f667ac/src/TheField/task-1.4.10.png)
+![](https://raw.githubusercontent.com/danbroooks/coding-the-matrix/007477fe02141e69204c9ed6c6ebb7592b10268a/src/TheField/task-1.4.10.svg)
 
 ## Task 1.4.17
 
@@ -120,7 +120,7 @@ plotE = plot' pts 2 2
         n = 20
 ```
 
-![](https://github.com/danbroooks/coding-the-matrix/raw/de7e944d555e6d5c39ad3a23d267044a73f667ac/src/TheField/task-1.4.17.png)
+![](https://raw.githubusercontent.com/danbroooks/coding-the-matrix/5adf98006bd085565860b4b8caf18e8c7f71944a/src/TheField/task-1.4.17.svg)
 
 ## Task 1.4.18
 
@@ -133,7 +133,7 @@ plotRotation' = plot' pts 4 4
   where pts = [ pt * e ** i (pi / 4) | pt <- s ]
 ```
 
-![](https://github.com/danbroooks/coding-the-matrix/raw/de7e944d555e6d5c39ad3a23d267044a73f667ac/src/TheField/task-1.4.18.png)
+![](https://raw.githubusercontent.com/danbroooks/coding-the-matrix/5adf98006bd085565860b4b8caf18e8c7f71944a/src/TheField/task-1.4.18.svg)
 
 ## Task 1.4.19
 
@@ -147,7 +147,7 @@ plotImageRotation img = plot' pts 200 200
     rotate pt = pt * e ** i (pi / 4)
 ```
 
-![](https://raw.githubusercontent.com/danbroooks/coding-the-matrix/c21eea7e86c01221db7242b399b841148365d73e/src/TheField/task-1.4.19.png)
+![](https://raw.githubusercontent.com/danbroooks/coding-the-matrix/5adf98006bd085565860b4b8caf18e8c7f71944a/src/TheField/task-1.4.19.svg)
 
 ## Task 1.4.20
 
@@ -163,7 +163,7 @@ plotMultipleOperations img = plot' pts 200 200
     transform = (+) (-1 * (100 :+ 100))
 ```
 
-![](https://raw.githubusercontent.com/danbroooks/coding-the-matrix/c22a4fd24455462e5355d1bd1d87aefa7c368448/src/TheField/task-1.4.20.png)
+![](https://raw.githubusercontent.com/danbroooks/coding-the-matrix/5adf98006bd085565860b4b8caf18e8c7f71944a/src/TheField/task-1.4.20.svg)
 
 ## Task 1.7.10
 
@@ -173,17 +173,17 @@ The arrows you draw should (roughly) correspond to the vectors being added.
 
 a. `(3+1i)+(2+2i)`
 
-![](https://github.com/danbroooks/coding-the-matrix/raw/c2ddbd78d496c8c6f3b7448af9a2e3db9bea45a3/src/TheField/task-1.7.10-a.png)
+![](https://raw.githubusercontent.com/danbroooks/coding-the-matrix/2fea2d2778bc57805d98c2f0980cfbd4d52da932/src/TheField/task-1.7.10-a.svg)
 
 b. `(−1+2i)+(1−1i)`
 
-![](https://github.com/danbroooks/coding-the-matrix/raw/c2ddbd78d496c8c6f3b7448af9a2e3db9bea45a3/src/TheField/task-1.7.10-b.png)
+![](https://raw.githubusercontent.com/danbroooks/coding-the-matrix/2fea2d2778bc57805d98c2f0980cfbd4d52da932/src/TheField/task-1.7.10-b.svg)
 
 c. `(2+0i)+(−3+.001i)`
 
-![](https://github.com/danbroooks/coding-the-matrix/raw/c2ddbd78d496c8c6f3b7448af9a2e3db9bea45a3/src/TheField/task-1.7.10-c.png)
+![](https://raw.githubusercontent.com/danbroooks/coding-the-matrix/2fea2d2778bc57805d98c2f0980cfbd4d52da932/src/TheField/task-1.7.10-c.svg)
 
 d. `4(0+2i)+(.001+1i)`
 
-![](https://github.com/danbroooks/coding-the-matrix/raw/c2ddbd78d496c8c6f3b7448af9a2e3db9bea45a3/src/TheField/task-1.7.10-d.png)
+![](https://raw.githubusercontent.com/danbroooks/coding-the-matrix/2fea2d2778bc57805d98c2f0980cfbd4d52da932/src/TheField/task-1.7.10-d.svg)
 
